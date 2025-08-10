@@ -286,7 +286,9 @@ footer {
     }
     
     .tabs-header {
-      flex-direction: column;
+      flex-direction: row;
+      overflow-x: auto;
+      white-space: nowrap;
     }
     
     .tab {
@@ -314,6 +316,40 @@ footer {
     
     .tabs-content {
       padding: 1rem;
+    }
+
+    .nav-links {
+      /* Positionnement */
+      position: absolute;
+      top: 100%; /* Juste en dessous du header */
+      right: 0;
+      
+      /* Style visuel */
+      background: white;
+      padding: 15px;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      display: none; /* Caché par défaut */
+      flex-direction: column;
+      z-index: 100;
+      width: auto; /* S'adapte au contenu */
+      
+      /* Animation */
+      animation: slideDown 0.3s ease-out;
+    }
+  
+    /* Animation d'apparition */
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+
+    .mobile-menu-btn {
+      display: block;
     }
   }
 

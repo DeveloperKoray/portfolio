@@ -1,5 +1,7 @@
 let currentLang = 'en';
 document.addEventListener('DOMContentLoaded', function () {
+
+    initMobileMenu();
     // Gestion des langues
     const langButtons = document.querySelectorAll('.lang-btn');
     //Default language is english
@@ -34,14 +36,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Menu mobile 
-    //Surement a enlever car pas de menu
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+    //A FAIRE
+    // menuToggle.addEventListener('click', (e) => {
+    //     e.stopPropagation();
+    //     menuToggle.classList.toggle('active');
+    //     navLinks.classList.toggle('active');
+    // });
 
-    mobileMenuBtn.addEventListener('click', function () {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-    });
 
     // Redimensionnement
     window.addEventListener('resize', function () {
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function copyToClipboard(element) {
     // SHHHHHH don't tell how i did.
-    const copiedText = {"en": "      copied !      ", "fr": "       Copié !       "};
+    const copiedText = { "en": "      copied !      ", "fr": "       Copié !       " };
 
     // take my email
     const myeamail = element.textContent;
@@ -80,7 +81,7 @@ function copyToClipboard(element) {
         setTimeout(() => {
             element.textContent = myeamail;
         }, 1000);
-        
+
     });
 }
 
@@ -119,7 +120,7 @@ function generateProjectHTML(project) {
     </div>`;
     //Generation of video field if video is available
     var generateVideo = "";
-    if(project.video_link != null){
+    if (project.video_link != null) {
         generateVideo = `
         <div class="video-container">
             <iframe src="${project.video_link}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -146,8 +147,49 @@ function generateAboutme(project) {
     </div>`;
 }
 
-function generateContactme(project){
+function generateContactme(project) {
     return `
         <h2>${project.contact_title}</h2>
         <p>${project.contact_description}</p>`;
 }
+
+function initMobileMenu() {
+    // 1. Récupère les éléments existants
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-links');
+    
+    if (!menuBtn || !navMenu) return; // Sécurité si éléments absents
+  
+    // 2. Gère l'affichage initial
+    function updateMenu() {
+      const isMobile = window.innerWidth <= 480;
+      
+      if (isMobile) {
+        menuBtn.style.display = 'block';
+        navMenu.style.display = 'none';
+      } else {
+        menuBtn.style.display = 'none';
+        navMenu.style.display = 'flex';
+      }
+    }
+  
+    // 3. Gère les clics
+    function toggleMenu(e) {
+      e.stopPropagation();
+      navMenu.style.display = navMenu.style.display === 'none' ? 'flex' : 'none';
+    }
+  
+    function closeMenu(e) {
+      if (!navMenu.contains(e.target) && e.target !== menuBtn) {
+        navMenu.style.display = 'none';
+      }
+    }
+  
+    // 4. Initialisation
+    updateMenu();
+    menuBtn.addEventListener('click', toggleMenu);
+    document.addEventListener('click', closeMenu);
+  
+    // 5. Adapte au redimensionnement
+    window.addEventListener('resize', updateMenu);
+  }
