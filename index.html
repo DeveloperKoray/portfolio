@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">Koray Kutlu - Portfolio</div>
+                <!-- Va falloir supprimer ce truc inutile? ça ve juste être des div qui permettent certaine chose. Download cv, linkedin, mon mail -->
+                <div class="nav-links">
+                    <a href="#" class="active" id="downloadcv">Download Cv</a>
+                    <a href="https://www.linkedin.com/in/koray-kutlu-56955b289">Linkedin</a>
+                    <span class="copy-hint" id="myemail" onclick="copyToClipboard(this)">koraykutlu@hotmail.be</span>
+                </div>
+                <div class="language-switcher">
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                </div>
+                <div class="mobile-menu-btn">☰</div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1 id="welcome_title">Welcome to my portfolio</h1>
+            <p id="welcome_subtitle">Passionate developer creating innovative solutions</p>
+        </section>
+
+
+        <section class="section">
+            <div class="container">
+                <div class="aboutme" id="aboutme">
+                    <h2>About me</h2>
+                    <p class="tagline">Application developer</p>
+                    <div class="identity-description">
+                        <p>
+                            Holder of a bachelor's degree in business computing, I develop web, mobile and software
+                            applications.<br>Curious and methodical, I enjoy understanding how things work and finding
+                            clear solutions to technical problems.<br>I'm a positive person, always motivated to learn
+                            and move forward with a smile.
+                        </p>
+                        <p> / </p>
+                        <div class="next-section-hint">
+                            <span>See my work ↓</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section"><!--projects-->
+            <div class="tabs-container">
+                <div class="tabs-header" id="toMyWork">
+                    <div class="tab active" data-tab="javaspring">Java Spring/Angular</div>
+                    <div class="tab" data-tab="c++">C++</div>
+                    <div class="tab" data-tab="java">Java</div>
+                    <div class="tab" data-tab="mobile">Mobile</div>
+                    <div class="tab" data-tab="php">Php</div>
+                </div>
+
+                <div class="tabs-content">
+                    <div class="tab-content active" id="javaspring">
+                        <div class="project-details">
+                            <h2>E-commerce Website</h2>
+                            <p>This project is a complete online store allowing users to browse products, manage their
+                                cart and complete purchases through a smooth checkout process. It was designed as a
+                                functional demonstration of a modern e-commerce site, with a responsive user interface
+                                and efficient server-side data management. The application relies on Angular for the
+                                front-end and Java Spring Boot for the back-end.</p>
+                        </div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/DgZg1Md9Q3c?si=Gvhg09qpDfV7E-5j"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="c++">
+                        <div class="project-details">
+                            <h2>Abalone</h2>
+                            <p>Abalone is a C++ project done in pairs, completely independently. After analyzing the
+                                game rules and modeling the project in UML, we developed a first playable console
+                                version, with tests. A second graphical version was then created with Qt, which we
+                                learned on the fly. Documentation was generated with Doxygen, and a comprehensive report
+                                was written in LaTeX.</p>
+                        </div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/-jxGIvCQOrM?si=OLZR4xmVOZ25_XiO"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="java">
+                        <div class="project-details">
+                            <h2>Stib Ride</h2>
+                            <p>Stib Ride is a Java application developed with a custom graphical interface. It allows
+                                users to visualize Brussels metro lines, find the fastest route between two stops using
+                                Dijkstra's algorithm, and manage favorite trips (add, rename, delete). Users can also
+                                search for a favorite to save time without having to reconfigure a route each time.</p>
+                        </div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/c_aOTsmBl8Y?si=1hGXQuB8ciewY1DK"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="php">
+                        <div class="project-details">
+                            <h2>Weather Application</h2>
+                            <p>Being very comfortable with php (Laravel), I added this section but without a project. I
+                                did my internship in php. For reference, I redirect you to the Java Spring tab to show
+                                what I'm capable of with php. I can do the same thing in php.</p>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="mobile">
+                        <div class="project-details">
+                            <h2>Custom Student Planner</h2>
+                            <p>To-do list type application developed in Kotlin, integrating a task management system
+                                with risk levels (high, medium, low) and optional deadlines. If a date is specified, a
+                                calendar view allows efficient visualization of deadlines.<br><br> The backend relies on
+                                Firebase (authentication, database and real-time synchronization), enabling seamless
+                                integration with the mobile environment. Emphasis was placed on data persistence, user
+                                session management, local caching to improve startup performance, and resilience to
+                                state changes (e.g., screen rotation, connection loss).<br><br> While the UI/UX could be
+                                improved, the main objective of the project was to ensure backend reliability, data
+                                security and application robustness in terms of logic and lifecycle.</p>
+                        </div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/Lmbs4mpXZHU?si=4rRoro0FwUootzgB"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Après la section projects -->
+        <section class="section"><!--cta section-container-->
+            <div class="cta-content" id="contactme">
+                <h2>Interested in my profile?</h2>
+                <p>Do you have any questions? Or is there something intriguing about my background?<br>Feel free to
+                    contact me : koraykutlu@hotmail.be</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p data-i18n="footer_text">© 2025 My Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="script/app.js"></script>
+    <script>
+        document.getElementById('goToMyWork').addEventListener('click', function () {
+            document.getElementById('toMyWork').scrollIntoView();
+        });
+    </script>
+</body>
+
+</html>
