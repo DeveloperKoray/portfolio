@@ -376,4 +376,6 @@ footer {
   height: 100%;
 }
 
-
+#myemail {
+  cursor: pointer;
+}

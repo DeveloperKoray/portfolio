@@ -36,53 +36,97 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    //A FAIRE
-    // menuToggle.addEventListener('click', (e) => {
-    //     e.stopPropagation();
-    //     menuToggle.classList.toggle('active');
-    //     navLinks.classList.toggle('active');
-    // });
-
-
-    // Redimensionnement
-    window.addEventListener('resize', function () {
-        if (window.innerWidth > 768) {
-            navLinks.style.display = 'flex';
-        } else {
-            navLinks.style.display = 'none';
-        }
-    });
-
     //Allow to download my cv. We create a tag <a>, i simulate a click and then i delete it.
     document.getElementById('downloadcv').addEventListener('click', function () {
-        const link = document.createElement('a');
-        link.href = './Kutlu-Koray-cv.pdf'; // met le bon chemin vers ton CV ici
-        link.download = 'Kutlu-Koray-cv.pdf'; // nom du fichier téléchargé
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        //Just display in new window
+        window.open('./Kutlu-Koray-cv.pdf', '_blank');
+        e.preventDefault(); // Empêche le comportement par défaut si c'est un lien
+        //Allow to download
+        // const link = document.createElement('a');
+        // link.href = './Kutlu-Koray-cv.pdf'; // met le bon chemin vers ton CV ici
+        // link.download = 'Kutlu-Koray-cv.pdf'; // nom du fichier téléchargé
+        // link.style.display = 'none';
+        // document.body.appendChild(link);
+        // link.click();
+        // document.body.removeChild(link);
     });
 });
 
-function copyToClipboard(element) {
+async function copyToClipboard(element) {
     // SHHHHHH don't tell how i did.
-    const copiedText = { "en": "      copied !      ", "fr": "       Copié !       " };
+    //const copiedText = { "en": "      copied !      ", "fr": "       Copié !       " };
+    const email = element.textContent.trim();
+    const lang = document.documentElement.lang || 'en';
+    const feedback = { en: "      copied !      ", fr: "       Copié !       " }[lang];
+    const originalText = element.textContent;
 
-    // take my email
-    const myeamail = element.textContent;
+    // Méthode 1: API Clipboard moderne (90% des cas)
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        try {
+            await navigator.clipboard.writeText(email);
+            showFeedback();
+            return; // Sortie si succès
+        } catch (err) {
+            console.log("Méthode 1 échouée, tentative méthode 2...");
+        }
+    }
 
-    // Copy to cliboard. And change my email text for 1 second to write Copied and show to user that he copied my email.
-    navigator.clipboard.writeText(myeamail).then(() => {
-        // Take the good version of copied text. Depend on user language
-        element.textContent = copiedText[document.documentElement.lang];
+    // Méthode 2: Textarea fallback (pour iOS/Safari)
+    const textarea = document.createElement('textarea');
+    textarea.value = email;
+    textarea.style.position = 'fixed';
+    textarea.style.top = 0;
+    textarea.style.left = 0;
+    textarea.style.opacity = 0;
+    document.body.appendChild(textarea);
+    textarea.select();
 
-        // After 1 second i show my email again
-        setTimeout(() => {
-            element.textContent = myeamail;
-        }, 1000);
+    try {
+        // Méthode 2a: execCommand (déprécié mais nécessaire)
+        if (document.execCommand('copy')) {
+            showFeedback();
+        } else {
+            throw new Error("execCommand failed");
+        }
+    } catch (err) {
+        // Méthode 3: Fallback ultime (pour iOS ancien)
+        manualCopyFallback();
+    } finally {
+        document.body.removeChild(textarea);
+    }
 
-    });
+    function showFeedback() {
+        element.textContent = feedback;
+        setTimeout(() => element.textContent = originalText, 1000);
+    }
+
+    function manualCopyFallback() {
+        // Solution bulletproof pour iOS récalcitrant
+        const copyArea = document.createElement('div');
+        copyArea.contentEditable = true;
+        copyArea.textContent = email;
+        copyArea.style.position = 'fixed';
+        copyArea.style.top = 0;
+        copyArea.style.left = 0;
+        document.body.appendChild(copyArea);
+
+        const range = document.createRange();
+        range.selectNodeContents(copyArea);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        try {
+            const successful = document.execCommand('copy');
+            if (successful) {
+                showFeedback();
+            } else {
+                window.prompt("Copiez ce texte :", email);
+            }
+        } finally {
+            document.body.removeChild(copyArea);
+        }
+    }
 }
 
 /**
@@ -154,42 +198,35 @@ function generateContactme(project) {
 }
 
 function initMobileMenu() {
-    // 1. Récupère les éléments existants
+    if (window.innerWidth > 480) return;
+
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('.nav-links');
-    
-    if (!menuBtn || !navMenu) return; // Sécurité si éléments absents
-  
-    // 2. Gère l'affichage initial
-    function updateMenu() {
-      const isMobile = window.innerWidth <= 480;
-      
-      if (isMobile) {
-        menuBtn.style.display = 'block';
-        navMenu.style.display = 'none';
-      } else {
-        menuBtn.style.display = 'none';
-        navMenu.style.display = 'flex';
-      }
-    }
-  
-    // 3. Gère les clics
-    function toggleMenu(e) {
-      e.stopPropagation();
-      navMenu.style.display = navMenu.style.display === 'none' ? 'flex' : 'none';
-    }
-  
-    function closeMenu(e) {
-      if (!navMenu.contains(e.target) && e.target !== menuBtn) {
-        navMenu.style.display = 'none';
-      }
-    }
-  
-    // 4. Initialisation
-    updateMenu();
-    menuBtn.addEventListener('click', toggleMenu);
-    document.addEventListener('click', closeMenu);
-  
-    // 5. Adapte au redimensionnement
-    window.addEventListener('resize', updateMenu);
-  }
+
+    const clickHandler = (e) => {
+        if (navMenu.contains(e.target) || e.target === menuBtn) return;
+        navMenu.classList.remove('active');
+    };
+
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navMenu.classList.toggle('active');
+    });
+
+    document.addEventListener('click', clickHandler);
+
+    // Nettoyage au resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 480) {
+            document.removeEventListener('click', clickHandler);
+            navMenu.classList.remove('active');
+        }
+    });
+}
+
+/**
+ * Handle click differently if it's on phone/tablet or computer.
+ */
+function handleClick() {
+
+}
