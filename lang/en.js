@@ -13,13 +13,20 @@
             "id": "javaspring",
             "title": "E-commerce Website",
             "video_link": "https://www.youtube.com/embed/DgZg1Md9Q3c?si=Gvhg09qpDfV7E-5j",
-            "description": "This project is a complete online store allowing users to browse products, manage their cart and complete purchases through a smooth checkout process. It was designed as a functional demonstration of a modern e-commerce site, with a responsive user interface and efficient server-side data management. The application relies on Angular for the front-end and Java Spring Boot for the back-end."
+            "description": "This project is a complete online store allowing users to browse products, manage their cart and complete purchases through a smooth checkout process. It was designed as a functional demonstration of a modern e-commerce site, with a responsive user interface and efficient server-side data management. The application relies on Angular for the front-end and Java Spring Boot for the back-end.",
+            "haveUmlclassdiagram" : false
         },
         {
             "id": "c++",
             "title": "Abalone",
             "video_link": "https://www.youtube.com/embed/-jxGIvCQOrM?si=OLZR4xmVOZ25_XiO",
-            "description": "Abalone is a C++ project done in pairs, completely independently. After analyzing the game rules and modeling the project in UML, we developed a first playable console version, with tests. A second graphical version was then created with Qt, which we learned on the fly. Documentation was generated with Doxygen, and a comprehensive report was written in LaTeX."
+            "description": "Abalone is a C++ project done in pairs, completely independently. After analyzing the game rules and modeling the project in UML, we developed a first playable console version, with tests. A second graphical version was then created with Qt, which we learned on the fly. Documentation was generated with Doxygen, and a comprehensive report was written in LaTeX.",
+            "haveUmlclassdiagram" : true,
+            "umlclassdiagram_title": "UML Class Diagram",
+            "umlclassdiagram_description" : "Here is the UML class diagram created with my partner for the game. We designed it after several discussions and architectural choices. Use the button below to view the PDF and download it.",
+            "umlclassdiagram_pdflink": "./extra/umlclassdiagram_C.pdf",
+            "umlclassdiagram_visualisepdf_message": "View PDF",
+            "umlclassdiagram_pdfvisualiser_error": "Your browser does not support the display of PDF files. View it using the button just above!"
         },
         {
             "id": "java",
@@ -31,13 +38,15 @@
             "id": "php",
             "title": "Weather Application",
             "description": "Being very comfortable with php (Laravel), I added this section but without a project. I did my internship in php. For reference, I redirect you to the Java Spring tab to show what I'm capable of with php. I can do the same thing in php.",
-            "video_link": null
+            "video_link": null,
+            "haveUmlclassdiagram" : false
         },
         {
             "id": "mobile",
             "title": "Custom Student Planner",
             "video_link": "https://www.youtube.com/embed/Lmbs4mpXZHU?si=4rRoro0FwUootzgB",
-            "description": "To-do list type application developed in Kotlin, integrating a task management system with risk levels (high, medium, low) and optional deadlines. If a date is specified, a calendar view allows efficient visualization of deadlines.<br><br> The backend relies on Firebase (authentication, database and real-time synchronization), enabling seamless integration with the mobile environment. Emphasis was placed on data persistence, user session management, local caching to improve startup performance, and resilience to state changes (e.g., screen rotation, connection loss).<br><br> While the UI/UX could be improved, the main objective of the project was to ensure backend reliability, data security and application robustness in terms of logic and lifecycle."
+            "description": "To-do list type application developed in Kotlin, integrating a task management system with risk levels (high, medium, low) and optional deadlines. If a date is specified, a calendar view allows efficient visualization of deadlines.<br><br> The backend relies on Firebase (authentication, database and real-time synchronization), enabling seamless integration with the mobile environment. Emphasis was placed on data persistence, user session management, local caching to improve startup performance, and resilience to state changes (e.g., screen rotation, connection loss).<br><br> While the UI/UX could be improved, the main objective of the project was to ensure backend reliability, data security and application robustness in terms of logic and lifecycle.",
+            "haveUmlclassdiagram" : false
         }
     ]
 }

@@ -171,7 +171,26 @@ function generateProjectHTML(project) {
         </div>`;
     }
 
-    const content = generateContent + generateVideo;
+    //Generation of diagram class uml field if the project have one.
+    var generateUml = "";
+    if(project.haveUmlclassdiagram == true){
+        generateUml = `<div class="pdf-container">
+                            <h3>${project.umlclassdiagram_title}</h3>
+                            <p>${project.umlclassdiagram_description}</p>
+                            <a href="${project.umlclassdiagram_pdflink}" class="pdf-link" target="_blank" rel="noopener noreferrer">
+                                ${project.umlclassdiagram_visualisepdf_message}
+                            </a>
+                            
+                            <object 
+                              data="${project.umlclassdiagram_pdflink}#view=FitH&toolbar=0&navpanes=0" 
+                              type="application/pdf"
+                              class="pdf-preview">
+                              <p>${project.umlclassdiagram_pdfvisualiser_error}</p>
+                            </object>
+                        </div>`;
+    }
+
+    const content = generateContent + generateVideo + generateUml;
 
     return content;
 }
@@ -192,6 +211,7 @@ function generateAboutme(project) {
 }
 
 function generateContactme(project) {
+    //TODO y a pas contact_title et contact_description de crée.
     return `
         <h2>${project.contact_title}</h2>
         <p>${project.contact_description}</p>`;

@@ -1,1 +1,6 @@
 Quand copie téléphone taille menu change.
+Dans la partie contact proposer linkedin aussi.
+Voir le truc avec php.
+Rajouter parti c++ analyse
+Rajouter contactme_title etcontactme_description
+Rajouter l'automatisation du diagram
