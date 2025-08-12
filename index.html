@@ -29,12 +29,14 @@
     </header>
 
     <main>
+        <!--Section Welcome-->
         <section class="hero">
             <h1 id="welcome_title">Welcome to my portfolio</h1>
             <p id="welcome_subtitle">Passionate developer creating innovative solutions</p>
         </section>
 
 
+        <!--Section Aboutme-->
         <section class="section">
             <div class="aboutme" id="aboutme">
                 <h2>About me</h2>
@@ -46,15 +48,12 @@
                         clear solutions to technical problems.<br>I'm a positive person, always motivated to learn
                         and move forward with a smile.
                     </p>
-                    <p> / </p>
-                    <div class="next-section-hint" id="discoverMyWork">
-                        <span>See my work ↓</span>
-                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section"><!--projects-->
+        <!--Section Projects-->
+        <section class="section">
             <div class="tabs-container">
                 <div class="tabs-header" id="myWork">
                     <div class="tab active" data-tab="javaspring">Java Spring/Angular</div>
@@ -98,17 +97,20 @@
                                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
                         </div>
                         <div class="pdf-container">
-                            <h3>Diagramme UML (PDF)</h3>
-                            <p>Voici le diagramme de classe UML qu'on avait crée pour cette application.</p>
-                            <a href="./extra/Analysediagramme.pdf" class="pdf-link" target="_blank" rel="noopener noreferrer">
-                                📄 Télécharger le PDF complet
+                            <h3>UML Class Diagram</h3>
+                            <p>Here is the UML class diagram created with my partner for the game. We designed it after
+                                several discussions and architectural choices. Use the button below to view the PDF and
+                                download it.</p>
+                            <a href="./extra/umlclassdiagram_C.pdf" class="pdf-link" target="_blank"
+                                rel="noopener noreferrer">
+                                View PDF
                             </a>
-                            
-                            <!-- Option d'aperçu intégré -->
-                            <object 
-                              data="./extra/Analysediagramme.pdf#view=FitH&toolbar=0&navpanes=0" 
-                              type="application/pdf"
-                              class="pdf-preview">
+
+                            <!-- Visualize pdf live -->
+                            <object data="./extra/umlclassdiagram_C.pdf#view=FitH&amp;toolbar=0&amp;navpanes=0"
+                                type="application/pdf" class="pdf-preview">
+                                <p>Your browser does not support the display of PDF files. View it using the button just
+                                    above!</p>
                             </object>
                         </div>
                     </div>
@@ -131,10 +133,10 @@
 
                     <div class="tab-content" id="php">
                         <div class="project-details">
-                            <h2>Weather Application</h2>
-                            <p>Being very comfortable with php (Laravel), I added this section but without a project. I
-                                did my internship in php. For reference, I redirect you to the Java Spring tab to show
-                                what I'm capable of with php. I can do the same thing in php.</p>
+                            <h2>PHP & Laravel - Academic and Professional Experience</h2>
+                            <p>Solid experience in PHP, gained through both academic projects and a professional internship, with a focus on the Laravel framework. 
+                                While I am not showcasing a specific Laravel video here, I am fully capable of recreating a backend similar to the one built with Java Spring Boot in my Spring/Angular project (see corresponding video). 
+                                The frontend features demonstrated in that project reflect the skills required to develop the backend in Laravel, following the same principles and best practices.</p>
                         </div>
                     </div>
 
@@ -162,19 +164,15 @@
             </div>
         </section>
 
-        <!-- Après la section projects -->
+        <!-- Section contactme -->
         <section class="section">
             <div class="cta-content" id="contactme">
                 <h2>Interested in my profile?</h2>
                 <div class="identity-description">
-                    <p>Do you have any questions or find something intriguing about my background? Feel free to contact me at koraykutlu@hotmail.be or via LinkedIn.</p>
+                    <p>Do you have any questions or find something intriguing about my background?<br> Feel free to
+                        contact me at koraykutlu@hotmail.be or via LinkedIn.</p>
                 </div>
             </div>
-            <!--<div class="cta-content" id="contactme">
-                <h2>Interested in my profile?</h2>
-                <p>Do you have any questions? Or is there something intriguing about my background?<br>Feel free to
-                    contact me : koraykutlu@hotmail.be</p>
-            </div>-->
         </section>
 
     </main>
