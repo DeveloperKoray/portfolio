@@ -7,7 +7,7 @@
     "aboutme_description" : "Titulaire d’un bachelier en informatique de gestion, je développe des applications web, mobiles et logicielles.<br>Curieux et méthodique, j’aime comprendre comment les choses fonctionnent et trouver des solutions claires aux problèmes techniques.<br>Je suis quelqu’un de positif, toujours motivé à apprendre et à avancer avec le sourire.",
     "aboutme_description_extra" : "Voir mes réalisations ↓",
     "contact_title" : "Intéressé par mon profil ?",
-    "contact_description": "Vous avez des questions ? Ou quelque chose vous intrigue dans mon parcours ?<br> N'hésitez pas à me contacter : koraykutlu@hotmail.be",
+    "contact_description": "Vous avez des questions ou quelque chose vous intrigue dans mon parcours ? N'hésitez pas à me contacter à l'adresse koraykutlu@hotmail.be ou via LinkedIn.",
     "projects" : [
         {
             "id": "javaspring",

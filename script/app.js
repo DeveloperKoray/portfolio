@@ -195,26 +195,26 @@ function generateProjectHTML(project) {
     return content;
 }
 
-function generateAboutme(project) {
+function generateAboutme(response) {
     return `
-    <h2>${project.aboutme_title}</h2>
-    <p class="tagline">${project.aboutme_subtitle}</p>
+    <h2>${response.aboutme_title}</h2>
+    <p class="tagline">${response.aboutme_subtitle}</p>
     <div class="identity-description">
         <p>
-        ${project.aboutme_description}
+        ${response.aboutme_description}
         </p>
         <p> / </p>
         <div class="next-section-hint">
-            <span>${project.aboutme_description_extra}</span>
+            <span>${response.aboutme_description_extra}</span>
         </div>
     </div>`;
 }
 
-function generateContactme(project) {
-    //TODO y a pas contact_title et contact_description de crée.
-    return `
-        <h2>${project.contact_title}</h2>
-        <p>${project.contact_description}</p>`;
+function generateContactme(response) {
+    return `<h2>${response.contact_title}</h2>
+                <div class="identity-description">
+                    <p>${response.contact_description}</p>
+                </div>`;
 }
 
 function initMobileMenu() {

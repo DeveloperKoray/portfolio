@@ -7,7 +7,7 @@
     "aboutme_description": "Holder of a bachelor's degree in business computing, I develop web, mobile and software applications.<br>Curious and methodical, I enjoy understanding how things work and finding clear solutions to technical problems.<br>I'm a positive person, always motivated to learn and move forward with a smile.",
     "aboutme_description_extra": "See my work ↓",
     "contact_title": "Interested in my profile?",
-    "contact_description": "Do you have any questions? Or is there something intriguing about my background?<br>Feel free to contact me : koraykutlu@hotmail.be",
+    "contact_description": "Do you have any questions or find something intriguing about my background? Feel free to contact me at koraykutlu@hotmail.be or via LinkedIn.",
     "projects": [
         {
             "id": "javaspring",
