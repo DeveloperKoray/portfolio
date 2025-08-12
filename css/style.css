@@ -422,3 +422,7 @@ footer:before {
   border: none;
   border-radius: 4px;
 }
+
+.cta-content h2{
+  color: var(--primary);
+}
