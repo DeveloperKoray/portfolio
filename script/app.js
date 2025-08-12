@@ -39,16 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
     //Allow to download my cv. We create a tag <a>, i simulate a click and then i delete it.
     document.getElementById('downloadcv').addEventListener('click', function () {
         //Just display in new window
-        window.open('./Kutlu-Koray-cv.pdf', '_blank');
-        e.preventDefault(); // Empêche le comportement par défaut si c'est un lien
-        //Allow to download
-        // const link = document.createElement('a');
-        // link.href = './Kutlu-Koray-cv.pdf'; // met le bon chemin vers ton CV ici
-        // link.download = 'Kutlu-Koray-cv.pdf'; // nom du fichier téléchargé
-        // link.style.display = 'none';
-        // document.body.appendChild(link);
-        // link.click();
-        // document.body.removeChild(link);
+        window.open('./extra/Kutlu-Koray-cv.pdf', '_blank');
+        e.preventDefault(); 
     });
 });
 
@@ -96,8 +88,12 @@ async function copyToClipboard(element) {
     }
 
     function showFeedback() {
+        const width = element.offsetWidth + "px";
         element.textContent = feedback;
-        setTimeout(() => element.textContent = originalText, 1000);
+        element.style.width = width;
+        setTimeout(() => {element.textContent = originalText
+            element.style.width = "";
+        }, 1000);
     }
 
     function manualCopyFallback() {
@@ -238,11 +234,4 @@ function initMobileMenu() {
             navMenu.classList.remove('active');
         }
     });
-}
-
-/**
- * Handle click differently if it's on phone/tablet or computer.
- */
-function handleClick() {
-
 }
