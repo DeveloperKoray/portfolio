@@ -203,10 +203,6 @@ function generateAboutme(response) {
         <p>
         ${response.aboutme_description}
         </p>
-        <p> / </p>
-        <div class="next-section-hint">
-            <span>${response.aboutme_description_extra}</span>
-        </div>
     </div>`;
 }
 

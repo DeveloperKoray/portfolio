@@ -5,7 +5,6 @@
     "aboutme_title" : "A propos de moi",
     "aboutme_subtitle" : "Développeur d'applications",
     "aboutme_description" : "Titulaire d’un bachelier en informatique de gestion, je développe des applications web, mobiles et logicielles.<br>Curieux et méthodique, j’aime comprendre comment les choses fonctionnent et trouver des solutions claires aux problèmes techniques.<br>Je suis quelqu’un de positif, toujours motivé à apprendre et à avancer avec le sourire.",
-    "aboutme_description_extra" : "Voir mes réalisations ↓",
     "contact_title" : "Intéressé par mon profil ?",
     "contact_description": "Vous avez des questions ou quelque chose vous intrigue dans mon parcours ? N'hésitez pas à me contacter à l'adresse koraykutlu@hotmail.be ou via LinkedIn.",
     "projects" : [
@@ -37,8 +36,8 @@
         },
         {
             "id": "php",
-            "title": "Application Météo",
-            "description": "Etant très à l'aise avec php (Laravel), j'ai rajouté cette section mais sans projet. J'ai fait mon stage en php. POur référence je vous redirige vers l'onlget Java Spring pour montrer ce dont je suis capable avec php. Je suis capable de refaire la même chose en php.",
+            "title": "PHP & Laravel - Expérience académique et professionnelle",
+            "description": "Solide expérience en PHP, acquise à la fois à l’école et en stage, notamment avec le framework Laravel. Bien que je ne présente pas ici de vidéo spécifique à Laravel, je suis capable de reproduire un backend similaire à celui réalisé avec Java Spring Boot dans mon projet Spring/Angular (voir vidéo correspondante). Les fonctionnalités visibles côté frontend reflètent les compétences nécessaires pour développer la partie backend avec Laravel, selon les mêmes principes et bonnes pratiques.",
             "video_link": null,
             "haveUmlclassdiagram" : false
         },

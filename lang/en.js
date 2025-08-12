@@ -5,7 +5,6 @@
     "aboutme_title": "About me",
     "aboutme_subtitle": "Application developer",
     "aboutme_description": "Holder of a bachelor's degree in business computing, I develop web, mobile and software applications.<br>Curious and methodical, I enjoy understanding how things work and finding clear solutions to technical problems.<br>I'm a positive person, always motivated to learn and move forward with a smile.",
-    "aboutme_description_extra": "See my work ↓",
     "contact_title": "Interested in my profile?",
     "contact_description": "Do you have any questions or find something intriguing about my background? Feel free to contact me at koraykutlu@hotmail.be or via LinkedIn.",
     "projects": [
@@ -36,8 +35,8 @@
         },
         {
             "id": "php",
-            "title": "Weather Application",
-            "description": "Being very comfortable with php (Laravel), I added this section but without a project. I did my internship in php. For reference, I redirect you to the Java Spring tab to show what I'm capable of with php. I can do the same thing in php.",
+            "title": "PHP & Laravel - Academic and Professional Experience",
+            "description": "Solid experience in PHP, gained through both academic projects and a professional internship, with a focus on the Laravel framework. While I am not showcasing a specific Laravel video here, I am fully capable of recreating a backend similar to the one built with Java Spring Boot in my Spring/Angular project (see corresponding video). The frontend features demonstrated in that project reflect the skills required to develop the backend in Laravel, following the same principles and best practices.",
             "video_link": null,
             "haveUmlclassdiagram" : false
         },
