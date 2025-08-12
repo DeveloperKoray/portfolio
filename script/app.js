@@ -40,8 +40,30 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('downloadcv').addEventListener('click', function () {
         //Just display in new window
         window.open('./extra/Kutlu-Koray-cv.pdf', '_blank');
-        e.preventDefault(); 
+        e.preventDefault();
     });
+
+    /**
+ * Load language and put all the text in the good area. 
+ * This function is in the DOMContentLoaded else the function run from script/app.js and the path to the file is false.
+ * @param {*} lang Prefered language
+ */
+    async function loadLanguage(lang) {
+        const responseRaw = await fetch(`./lang/${lang}.js`);
+        const response = await responseRaw.json();
+        //generer le titre
+        document.getElementById("welcome_title").innerHTML = response.welcome_title;
+        //generer le soustitre
+        document.getElementById("welcome_subtitle").innerHTML = response.welcome_subtitle;
+        //Generer le contenu projet
+        response.projects.forEach(project => {
+            document.getElementById(project.id).innerHTML = generateProjectHTML(project);
+        });
+        //Generer la section about me
+        document.getElementById("aboutme").innerHTML = generateAboutme(response);
+        //Generer la section contactme
+        document.getElementById("contactme").innerHTML = generateContactme(response);
+    }
 });
 
 async function copyToClipboard(element) {
@@ -91,7 +113,8 @@ async function copyToClipboard(element) {
         const width = element.offsetWidth + "px";
         element.textContent = feedback;
         element.style.width = width;
-        setTimeout(() => {element.textContent = originalText
+        setTimeout(() => {
+            element.textContent = originalText
             element.style.width = "";
         }, 1000);
     }
@@ -126,27 +149,6 @@ async function copyToClipboard(element) {
 }
 
 /**
- * Load language and put all the text in the good area.
- * @param {*} lang Prefered language
- */
-async function loadLanguage(lang) {
-    const responseRaw = await fetch(`./lang/${lang}.js`);
-    const response = await responseRaw.json();
-    //generer le titre
-    document.getElementById("welcome_title").innerHTML = response.welcome_title;
-    //generer le soustitre
-    document.getElementById("welcome_subtitle").innerHTML = response.welcome_subtitle;
-    //Generer le contenu projet
-    response.projects.forEach(project => {
-        document.getElementById(project.id).innerHTML = generateProjectHTML(project);
-    });
-    //Generer la section about me
-    document.getElementById("aboutme").innerHTML = generateAboutme(response);
-    //Generer la section contactme
-    document.getElementById("contactme").innerHTML = generateContactme(response);
-}
-
-/**
  * Generate html content of a projet
  * @param {*} project The projet
  * @returns Html with the content
@@ -169,7 +171,7 @@ function generateProjectHTML(project) {
 
     //Generation of diagram class uml field if the project have one.
     var generateUml = "";
-    if(project.haveUmlclassdiagram == true){
+    if (project.haveUmlclassdiagram == true) {
         generateUml = `<div class="pdf-container">
                             <h3>${project.umlclassdiagram_title}</h3>
                             <p>${project.umlclassdiagram_description}</p>
