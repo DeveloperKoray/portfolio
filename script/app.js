@@ -130,7 +130,7 @@ async function copyToClipboard(element) {
  * @param {*} lang Prefered language
  */
 async function loadLanguage(lang) {
-    const responseRaw = await fetch(`/lang/${lang}.js`);
+    const responseRaw = await fetch(`./lang/${lang}.js`);
     const response = await responseRaw.json();
     //generer le titre
     document.getElementById("welcome_title").innerHTML = response.welcome_title;
