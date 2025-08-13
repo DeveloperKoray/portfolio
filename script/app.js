@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Gestion des langues
     const langButtons = document.querySelectorAll('.lang-btn');
     //Default language is english
+    cvDownload(currentLang);
+
     // Static content charging english first time
 
     langButtons.forEach(button => {
@@ -14,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
             currentLang = this.dataset.lang;
             document.documentElement.lang = currentLang;
             loadLanguage(currentLang);
+            cvDownload(currentLang);
         });
     });
 
@@ -36,18 +39,30 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    //Allow to download my cv. We create a tag <a>, i simulate a click and then i delete it.
-    document.getElementById('downloadcv').addEventListener('click', function () {
-        //Just display in new window
-        window.open('./extra/Kutlu-Koray-cv.pdf', '_blank');
-        e.preventDefault();
-    });
+    /**
+     * Allow to download my cv. We create a tag <a>, i simulate a click and then i delete it.
+     * We download the english version when en language is selected and fr version for french.
+     * @param {*} lang The language wich we use for the cv.
+     */
+    function cvDownload(lang) {
+        //We get the current button.
+        const downloadBtn = document.getElementById('downloadcv');
+
+        // We duplicate the button to remove the event click handler
+        downloadBtn.replaceWith(downloadBtn.cloneNode(true));
+        //Then we create again with the same function to update the current language and use the good version of the cv.
+        const newBtn = document.getElementById('downloadcv');
+        newBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.open(`./extra/Kutlu-Koray-cv-${lang}.pdf`, '_blank');
+        });
+    }
 
     /**
- * Load language and put all the text in the good area. 
- * This function is in the DOMContentLoaded else the function run from script/app.js and the path to the file is false.
- * @param {*} lang Prefered language
- */
+    * Load language and put all the text in the good area. 
+    * This function is in the DOMContentLoaded else the function run from script/app.js and the path to the file is false.
+    * @param {*} lang Prefered language
+    */
     async function loadLanguage(lang) {
         const responseRaw = await fetch(`./lang/${lang}.js`);
         const response = await responseRaw.json();
@@ -67,11 +82,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 async function copyToClipboard(element) {
-    // SHHHHHH don't tell how i did.
-    //const copiedText = { "en": "      copied !      ", "fr": "       Copié !       " };
     const email = element.textContent.trim();
     const lang = document.documentElement.lang || 'en';
-    const feedback = { en: "      copied !      ", fr: "       Copié !       " }[lang];
+    const feedback = { en: "copied !", fr: "Copié !" }[lang];
     const originalText = element.textContent;
 
     // Méthode 1: API Clipboard moderne (90% des cas)
