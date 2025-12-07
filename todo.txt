@@ -1,3 +1,0 @@
-Texte diagramme classe voir si pas changer bouton/le fait qu'on met le vouton puis visualizer.
-remove section tag in main content
-nav download button change name when fr

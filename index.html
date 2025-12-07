@@ -4,186 +4,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Portfolio - Koray Kutlu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Load language files -->
+    <script src="lang/en.js"></script>
+    <script src="lang/fr.js"></script>
 </head>
 
 <body>
-    <header>
+    <div class="background-gradient"></div>
+
+    <header class="glass-header">
         <nav>
-            <div class="nav-container">
-                <div class="logo">Koray Kutlu - Portfolio</div>
-                <!-- Va falloir supprimer ce truc inutile? ça ve juste être des div qui permettent certaine chose. Download cv, linkedin, mon mail -->
-                <div class="nav-links">
-                    <a href="#" class="active" id="downloadcv">Download Cv</a>
-                    <a href="https://www.linkedin.com/in/koray-kutlu-56955b289">Linkedin</a>
-                    <a id="myemail" onclick="copyToClipboard(this)">koraykutlu@hotmail.be</a>
-                </div>
-                <div class="language-switcher">
-                    <button class="lang-btn" data-lang="fr">FR</button>
-                    <button class="lang-btn active" data-lang="en">EN</button>
-                </div>
-                <div class="mobile-menu-btn">☰</div>
+            <div class="logo">KK</div>
+            <ul class="nav-links">
+                <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                <li><a href="#about" data-i18n="nav_about">About</a></li>
+                <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+            </ul>
+            <div class="lang-switch">
+                <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+                <button id="lang-en" class="active">EN</button>
+                <button id="lang-fr">FR</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </nav>
     </header>
 
     <main>
-        <!--Section Welcome-->
-        <section class="hero">
-            <h1 id="welcome_title">Welcome to my portfolio</h1>
-            <p id="welcome_subtitle">Passionate developer creating innovative solutions</p>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1 id="welcome_title">Welcome to my portfolio</h1>
+                <p id="welcome_subtitle" class="subtitle">Passionate developer creating innovative solutions</p>
+                <a href="#projects" class="cta-button" data-i18n="cta_projects">View Projects</a>
+            </div>
         </section>
 
-
-        <!--Section Aboutme-->
-        <section class="section">
-            <div class="aboutme" id="aboutme">
-                <h2>About me</h2>
-                <p class="tagline">Application developer</p>
-                <div class="identity-description">
-                    <p>
-                        Holder of a bachelor's degree in business computing, I develop web, mobile and software
-                        applications.<br>Curious and methodical, I enjoy understanding how things work and finding
-                        clear solutions to technical problems.<br>I'm a positive person, always motivated to learn
-                        and move forward with a smile.
-                    </p>
+        <section id="about" class="section-container">
+            <h2 id="aboutme_title" class="section-title">About me</h2>
+            <div class="about-content glass-card">
+                <h3 id="aboutme_subtitle">Application developer</h3>
+                <p id="aboutme_description">Loading...</p>
+                <div class="cv-buttons">
+                    <a href="extra/Kutlu-Koray-cv-en.pdf" target="_blank" class="btn-secondary" id="cv-en-btn">Download
+                        CV (EN)</a>
+                    <a href="extra/Kutlu-Koray-cv-fr.pdf" target="_blank" class="btn-secondary"
+                        id="cv-fr-btn">Télécharger CV (FR)</a>
                 </div>
             </div>
         </section>
 
-        <!--Section Projects-->
-        <section class="section">
-            <div class="tabs-container">
-                <div class="tabs-header" id="myWork">
-                    <div class="tab active" data-tab="javaspring">Java Spring/Angular</div>
-                    <div class="tab" data-tab="c++">C++</div>
-                    <div class="tab" data-tab="java">Java</div>
-                    <div class="tab" data-tab="mobile">Mobile</div>
-                    <div class="tab" data-tab="php">Php</div>
-                </div>
-
-                <div class="tabs-content">
-                    <div class="tab-content active" id="javaspring">
-                        <div class="project-details">
-                            <h2>E-commerce Website</h2>
-                            <p>This project is a complete online store allowing users to browse products, manage their
-                                cart and complete purchases through a smooth checkout process. It was designed as a
-                                functional demonstration of a modern e-commerce site, with a responsive user interface
-                                and efficient server-side data management. The application relies on Angular for the
-                                front-end and Java Spring Boot for the back-end.</p>
-                        </div>
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/DgZg1Md9Q3c?si=Gvhg09qpDfV7E-5j"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
-                        </div>
-                    </div>
-
-                    <div class="tab-content" id="c++">
-                        <div class="project-details">
-                            <h2>Abalone</h2>
-                            <p>Abalone is a C++ project done in pairs, completely independently. After analyzing the
-                                game rules and modeling the project in UML, we developed a first playable console
-                                version, with tests. A second graphical version was then created with Qt, which we
-                                learned on the fly. Documentation was generated with Doxygen, and a comprehensive report
-                                was written in LaTeX.</p>
-                        </div>
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/-jxGIvCQOrM?si=OLZR4xmVOZ25_XiO"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
-                        </div>
-                        <div class="pdf-container">
-                            <h3>UML Class Diagram</h3>
-                            <p>Here is the UML class diagram created with my partner for the game. We designed it after
-                                several discussions and architectural choices. Use the button below to view the PDF and
-                                download it.</p>
-                            <a href="./extra/umlclassdiagram_C.pdf" class="pdf-link" target="_blank"
-                                rel="noopener noreferrer">
-                                View PDF
-                            </a>
-
-                            <!-- Visualize pdf live -->
-                            <object data="./extra/umlclassdiagram_C.pdf#view=FitH&amp;toolbar=0&amp;navpanes=0"
-                                type="application/pdf" class="pdf-preview">
-                                <p>Your browser does not support the display of PDF files. View it using the button just
-                                    above!</p>
-                            </object>
-                        </div>
-                    </div>
-
-                    <div class="tab-content" id="java">
-                        <div class="project-details">
-                            <h2>Stib Ride</h2>
-                            <p>Stib Ride is a Java application developed with a custom graphical interface. It allows
-                                users to visualize Brussels metro lines, find the fastest route between two stops using
-                                Dijkstra's algorithm, and manage favorite trips (add, rename, delete). Users can also
-                                search for a favorite to save time without having to reconfigure a route each time.</p>
-                        </div>
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/c_aOTsmBl8Y?si=1hGXQuB8ciewY1DK"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
-                        </div>
-                    </div>
-
-                    <div class="tab-content" id="php">
-                        <div class="project-details">
-                            <h2>PHP & Laravel - Academic and Professional Experience</h2>
-                            <p>Solid experience in PHP, gained through both academic projects and a professional internship, with a focus on the Laravel framework. 
-                                While I am not showcasing a specific Laravel video here, I am fully capable of recreating a backend similar to the one built with Java Spring Boot in my Spring/Angular project (see corresponding video). 
-                                The frontend features demonstrated in that project reflect the skills required to develop the backend in Laravel, following the same principles and best practices.</p>
-                        </div>
-                    </div>
-
-                    <div class="tab-content" id="mobile">
-                        <div class="project-details">
-                            <h2>Custom Student Planner</h2>
-                            <p>To-do list type application developed in Kotlin, integrating a task management system
-                                with risk levels (high, medium, low) and optional deadlines. If a date is specified, a
-                                calendar view allows efficient visualization of deadlines.<br><br> The backend relies on
-                                Firebase (authentication, database and real-time synchronization), enabling seamless
-                                integration with the mobile environment. Emphasis was placed on data persistence, user
-                                session management, local caching to improve startup performance, and resilience to
-                                state changes (e.g., screen rotation, connection loss).<br><br> While the UI/UX could be
-                                improved, the main objective of the project was to ensure backend reliability, data
-                                security and application robustness in terms of logic and lifecycle.</p>
-                        </div>
-                        <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/Lmbs4mpXZHU?si=4rRoro0FwUootzgB"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
-                        </div>
-                    </div>
-                </div>
+        <section id="projects" class="section-container">
+            <h2 class="section-title" data-i18n="projects_title">Projects</h2>
+            <div id="projects-grid" class="projects-grid">
+                <!-- Projects will be injected here via JS -->
             </div>
         </section>
 
-        <!-- Section contactme -->
-        <section class="section">
-            <div class="cta-content" id="contactme">
-                <h2>Interested in my profile?</h2>
-                <div class="identity-description">
-                    <p>Do you have any questions or find something intriguing about my background?<br> Feel free to
-                        contact me at koraykutlu@hotmail.be or via LinkedIn.</p>
+        <section id="contact" class="section-container">
+            <h2 id="contact_title" class="section-title">Interested in my profile?</h2>
+            <div class="contact-content glass-card">
+                <p id="contact_description">Loading...</p>
+                <div class="social-links">
+                    <a href="mailto:koraykutlu@hotmail.be" class="social-btn">Email</a>
+                    <!-- Add LinkedIn if available, generic placeholder for now -->
+                    <a href="https://www.linkedin.com/in/koray-kutlu-56955b289" class="social-btn">LinkedIn</a>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer>
-        <p>© 2025 My Portfolio. All rights reserved.</p>
+        <p>&copy; 2025 Koray Kutlu. All rights reserved.</p>
     </footer>
 
-    <script src="script/app.js"></script>
-    <script>
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
