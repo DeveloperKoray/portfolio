@@ -9,6 +9,14 @@ window.lang_fr = {
     "contact_description": "Vous avez des questions ou quelque chose vous intrigue dans mon parcours ?<br> N'hésitez pas à me contacter à l'adresse koraykutlu@hotmail.be ou via LinkedIn.",
     "projects": [
         {
+            "id": "react",
+            "title": "Tableau de bord des cryptomonnaies",
+            "video_link": "https://www.youtube.com/embed/8745P2y75Hg",
+            "description": "Voici un projet que j’ai sélectionné durant mon apprentissage de React, où j’ai réalisé des projets avec React, TanStack Query et React Router. J’ai utilisé l’API publique de CoinGecko pour m’entraîner à travailler avec des données externes et construire une interface front-end claire et structurée.<br><br>Ce projet est inclus dans mon portfolio car il montre que je sais utiliser une API existante. Il illustre ma capacité à lire les données, comprendre leur structure et les exploiter efficacement.<br><br>J’ai également développé d’autres projets, comme un GitHub Finder, qui permet aux utilisateurs de suivre ou de ne plus suivre des profils et conserve les cinq recherches les plus récentes. Un autre projet est \"Idea Drop\", réalisé avec la stack MERN (MongoDB), où les utilisateurs peuvent consulter des idées et, une fois authentifiés, créer, modifier ou supprimer leurs propres idées. Le backend utilise MongoDB avec une API sécurisée et une authentification JWT.",
+            "tags": ["React", "MongoDB", "MERN Stack", "Tanstack query", "React router v7"],
+            "haveUmlclassdiagram": false
+        },
+        {
             "id": "javaspring",
             "title": "Site d'E-commerce",
             "video_link": "https://www.youtube.com/embed/DgZg1Md9Q3c?si=Gvhg09qpDfV7E-5j",

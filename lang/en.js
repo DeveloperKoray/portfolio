@@ -9,6 +9,14 @@ window.lang_en = {
     "contact_description": "Do you have any questions or find something intriguing about my background?<br> Feel free to contact me at koraykutlu@hotmail.be or via LinkedIn.",
     "projects": [
         {
+            "id": "react",
+            "title": "Crypto currency dashboard",
+            "video_link": "https://www.youtube.com/embed/8745P2y75Hg",
+            "description": "Here is a project I selected from my React learning journey, where I built projects using React, TanStack Query, and React Router. I used the CoinGecko public API to practice working with external data and building a clean front end structure.<br><br>This project is included in my portfolio because it shows that I can work with an existing API. It demonstrates how I can read the data, understand its structure, and use it effectively.<br><br>I’ve also built other projects, including a GitHub Finder, which lets users follow or unfollow profiles and keeps track of the five most recent searches. Another project is \"Idea Drop\", built with the MERN stack (MongoDB), where users can browse ideas and, once authenticated, create, edit, or delete their own. The backend uses MongoDB with a secure API and JWT authentication.",
+            "tags": ["React", "MongoDB", "MERN Stack", "Tanstack query", "React router v7"],
+            "haveUmlclassdiagram": false
+        },
+        {
             "id": "javaspring",
             "title": "E-commerce Website",
             "video_link": "https://www.youtube.com/embed/DgZg1Md9Q3c?si=Gvhg09qpDfV7E-5j",
